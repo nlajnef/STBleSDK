@@ -1,0 +1,187 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 6,
+    "identityHash": "2af39a92e5aa6a90fbfc7eb31ab0db22",
+    "entities": [
+      {
+        "tableName": "board_firmware",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`ble_dev_id` TEXT NOT NULL, `ble_fw_id` TEXT NOT NULL, `board_name` TEXT NOT NULL, `fw_version` TEXT NOT NULL, `fw_name` TEXT NOT NULL, `dtmi` TEXT, `cloud_apps` TEXT NOT NULL, `characteristics` TEXT NOT NULL, `option_bytes` TEXT NOT NULL, `fw_desc` TEXT NOT NULL, `changelog` TEXT, `fota` TEXT NOT NULL, PRIMARY KEY(`ble_dev_id`, `ble_fw_id`))",
+        "fields": [
+          {
+            "fieldPath": "bleDevId",
+            "columnName": "ble_dev_id",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "bleFwId",
+            "columnName": "ble_fw_id",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "brdName",
+            "columnName": "board_name",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "fwVersion",
+            "columnName": "fw_version",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "fwName",
+            "columnName": "fw_name",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "dtmi",
+            "columnName": "dtmi",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "cloudApps",
+            "columnName": "cloud_apps",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "characteristics",
+            "columnName": "characteristics",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "optionBytes",
+            "columnName": "option_bytes",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "fwDesc",
+            "columnName": "fw_desc",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "changelog",
+            "columnName": "changelog",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "fota",
+            "columnName": "fota",
+            "affinity": "TEXT",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "ble_dev_id",
+            "ble_fw_id"
+          ]
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "board_description",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`ble_dev_id` TEXT NOT NULL, `nfc_dev_id` TEXT, `usb_dev_id` TEXT, `unique_dev_id` INTEGER NOT NULL, `brd_name` TEXT NOT NULL, `components` TEXT, `friendly_name` TEXT NOT NULL, `status` TEXT NOT NULL, `description` TEXT, `documentation_url` TEXT, `order_url` TEXT, `video_url` TEXT, PRIMARY KEY(`ble_dev_id`))",
+        "fields": [
+          {
+            "fieldPath": "bleDevId",
+            "columnName": "ble_dev_id",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "usb_dev_id",
+            "columnName": "nfc_dev_id",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "usbDevId",
+            "columnName": "usb_dev_id",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "uniqueDevId",
+            "columnName": "unique_dev_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "boardName",
+            "columnName": "brd_name",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "components",
+            "columnName": "components",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "friendlyName",
+            "columnName": "friendly_name",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "status",
+            "columnName": "status",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "description",
+            "columnName": "description",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "docURL",
+            "columnName": "documentation_url",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "orderURL",
+            "columnName": "order_url",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "videoURL",
+            "columnName": "video_url",
+            "affinity": "TEXT",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "ble_dev_id"
+          ]
+        },
+        "indices": [],
+        "foreignKeys": []
+      }
+    ],
+    "views": [],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '2af39a92e5aa6a90fbfc7eb31ab0db22')"
+    ]
+  }
+}
